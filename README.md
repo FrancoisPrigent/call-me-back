@@ -10,7 +10,7 @@ This application manipulate files in order to register company basic information
 ## Get started
 Build the docker image: `docker build -t hello-callback .`
 
-Run the container: `docker container run --rm -it --name hello-callback --volume $(pwd):/var/www --workdir /var/www hello-callback sh`
+Run the container: `docker container run --rm -it --name hello-callback hello-callback sh`
 
 If you want to develop locally and test in the container add `--volume $(pwd):/var/www` before the image name.
 
