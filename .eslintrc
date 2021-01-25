@@ -1,0 +1,20 @@
+{
+  "extends": ["airbnb-base"],
+  "env": {
+    "node": true,
+    "es6": true
+  },
+  "rules": {
+    "no-console": "off"
+  },
+  "globals": {
+    "afterAll": "readonly",
+    "test": "readonly",
+    "expect": "readonly"
+  },
+  "overrides": [
+    {
+      "excludedFiles": "*.test.js",
+    }
+  ]
+}
