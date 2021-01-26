@@ -10,8 +10,11 @@ This application manipulate files in order to register company basic information
 ## Get started
 Build the docker image: `docker build -t hello-callback .`
 
-Run the container: `docker container run --rm -it --name hello-callback hello-callback sh`
+Run the container: `docker container run --name hello-callback-app hello-callback`
 
-If you want to develop locally and test in the container add `--volume $(pwd):/var/www` before the image name.
+Enter in the container in interactive mode: `docker container exec -it hello-callback-app sh`
 
-To register a company, run: `npm run register-company COMPANY_NAME`
+Then register a company: `npm run register-company COMPANY_NAME`
+
+### Dev mode
+Run the container with your host folder and the command to watch your updates and build your ts: `docker container run --name hello-callback-app --volume $(pwd):/var/www hello-callback npm run build-watch`
