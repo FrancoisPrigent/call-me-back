@@ -16,3 +16,5 @@ Then register a company: `npm run register-company COMPANY_NAME`
 
 ### Dev mode
 Run the container with your host folder and the command to watch your updates and build your ts: `docker container run --name hello-callback-app --volume $(pwd):/var/www hello-callback npm run build-watch`
+
+To run the tests: `npm run test`
