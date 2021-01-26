@@ -4,13 +4,8 @@
   "description": "NodeJS callback playground around the usage of the fs package.",
   "main": "index.js",
   "scripts": {
-    "build": "npm run create-company-files-directory && npm run build-command",
-    "build-watch": "npm run create-company-files-directory && npm run build-command-watch",
-    "build-command": "tsc",
-    "build-command-watch": "tsc --watch",
-    "create-company-files-directory": "mkdir -p ./build/src/companyFiles",
-    "test": "jest build",
-    "register-company": "node build/index.js"
+    "test": "jest",
+    "register-company": "node index.js"
   },
   "author": "",
   "license": "ISC",
