@@ -8,7 +8,7 @@ As i do POO since a long time, it's a good exercise to learn one of the NodeJS's
 This application manipulate files in order to register company basic informations.
 
 ## Get started
-Build the docker image: `docker build -t hello-callback .`
+Build the docker image: `docker build . -t hello-callback`
 
 Run the container: `docker container run --name hello-callback-app hello-callback`
 
