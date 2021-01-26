@@ -11,10 +11,6 @@
     "afterAll": "readonly",
     "test": "readonly",
     "expect": "readonly"
-  },
-  "overrides": [
-    {
-      "excludedFiles": "*.test.js",
-    }
-  ]
+
+  }
 }
