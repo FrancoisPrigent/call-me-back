@@ -4,11 +4,13 @@
   "description": "NodeJS callback playground around the usage of the fs package.",
   "main": "index.js",
   "scripts": {
-    "build": "./node_modules/typescript/bin/tsc && create-filebase-directory",
-    "build-watch": "build --watch",
-    "create-filebase-directory": "mkdir -p ./built/src/companyFiles",
-    "test": "jest",
-    "register-company": "node index.ts"
+    "build": "npm run create-company-files-directory && npm run build-command",
+    "build-watch": "npm run create-company-files-directory && npm run build-command-watch",
+    "build-command": "tsc",
+    "build-command-watch": "tsc --watch",
+    "create-company-files-directory": "mkdir -p ./build/src/companyFiles",
+    "test": "jest build",
+    "register-company": "node build/index.js"
   },
   "author": "",
   "license": "ISC",
@@ -17,6 +19,7 @@
   },
   "devDependencies": {
     "@tsconfig/node12": "^1.0.7",
+    "@types/jest": "^26.0.20",
     "eslint": "^7.2.0",
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-plugin-import": "^2.22.1",

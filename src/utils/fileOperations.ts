@@ -1,4 +1,4 @@
-const fs = require('fs');
+import fs from 'fs';
 
 export type callbackError = null|string;
 
@@ -15,8 +15,7 @@ export function createFile(filePath: string, callback: createFileCallback): void
     return;
   }
 
-  // add ts definition file for lib like fs wich doesn't use ts.
-  fs.open(filePath, 'w', (error: callbackError, fileDescriptor: number): any => {
+  fs.open(filePath, 'w', (error, fileDescriptor) => {
     if (error) {
       callback('Failed to create file', fileDescriptor);
       return;
@@ -29,7 +28,7 @@ export interface writeFileCallback {
   (error: callbackError, fileContent: string): void
 }
 export function writeFile(fileDescriptor: number, content: string, callback: writeFileCallback) {
-  fs.write(fileDescriptor, content, (error: callbackError) => {
+  fs.write(fileDescriptor, content, (error) => {
     if (error) {
       callback('Failed to edit file content', '');
       return;
@@ -39,7 +38,7 @@ export function writeFile(fileDescriptor: number, content: string, callback: wri
 }
 
 export function closeFile(fileDescriptor: number) {
-  fs.close(fileDescriptor, (error: callbackError): void => {
+  fs.close(fileDescriptor, (error) => {
     if (error) {
       console.log(`Failed to close the file: ${error}`);
     }

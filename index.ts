@@ -1,12 +1,9 @@
-import { callbackError } from './src/utils/fileOperations';
-import { CompanyBaseData } from './src/registerNewCompanyFile';
+import registerNewCompanyFile from './src/registerNewCompanyFile';
 
-const registerNewCompanyFile = require('./src/registerNewCompanyFile');
-
-registerNewCompanyFile(process.argv[2], (error: callbackError, companyFileContent?: CompanyBaseData): void => {
+registerNewCompanyFile(process.argv[2], (error, companyFileContent) => {
   if (error) {
     console.log(`Error: ${error}`);
     return;
   }
-  console.log(`Success: ${companyFileContent}`);
+  console.log(`Success: ${JSON.stringify(companyFileContent)}`);
 });

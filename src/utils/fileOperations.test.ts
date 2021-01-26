@@ -1,4 +1,15 @@
-const { createFile, writeFile } = require('./fileOperations');
+import { createFile, writeFile } from './fileOperations';
+import fs from 'fs';
+
+afterAll(() => {
+  fs.readdir(`${__dirname}/../companyFiles`, (readDirectoryError, files) => {
+    files.forEach((file) => {
+      fs.unlink(`${__dirname}/../companyFiles/${file}`, (deleteFileError) => {
+        if (deleteFileError) { throw deleteFileError; }
+      });
+    });
+  });
+});
 
 test('Create a file', (done) => {
   createFile(`${__dirname}/../companyFiles/testCreateFile.json`, (error) => {

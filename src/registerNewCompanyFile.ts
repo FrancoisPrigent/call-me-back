@@ -1,11 +1,10 @@
 import { 
-  callbackError,
   createFileCallback,
   createFile,
   writeFile,
   closeFile
 } from './utils/fileOperations';
-const moment = require('moment');
+import moment from 'moment';
 
 export interface CompanyBaseData {
   companyName: string,
@@ -23,7 +22,7 @@ function getCompanyFileBaseData(companyName: string): CompanyBaseData  {
 
 function saveCompanyBaseData(fileDescriptor: number, companyName: string, callback: companyFileCreationCallback) {
   const companyFileBaseData = getCompanyFileBaseData(companyName);
-  writeFile(fileDescriptor, JSON.stringify(companyFileBaseData), (error: callbackError, fileContent: string): void => {
+  writeFile(fileDescriptor, JSON.stringify(companyFileBaseData), (error, fileContent) => {
     if (error) {
       callback(error);
       return;
@@ -46,13 +45,14 @@ export interface companyFileCreationCallback {
   (error: string|null, companyFileContent?: CompanyBaseData): void
 }
 function registerNewCompanyFile(companyName: string, callback: companyFileCreationCallback) {
-  createCompanyFile(companyName, (error: callbackError, fileDescriptor: number): void => {
+  createCompanyFile(companyName, (error, fileDescriptor) => {
     if (error) {
       callback(error);
       return;
     }
+    // hello
     saveCompanyBaseData(fileDescriptor, companyName, callback);
   });
 }
 
-module.exports = registerNewCompanyFile;
+export default registerNewCompanyFile;
