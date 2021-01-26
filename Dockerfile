@@ -12,4 +12,4 @@ RUN npm install
 
 COPY . .
 
-CMD npm run build-watch
+CMD npm run build
